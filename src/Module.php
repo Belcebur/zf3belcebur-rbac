@@ -23,6 +23,8 @@ use function in_array;
 class Module implements DependencyIndicatorInterface
 {
 
+    public const CONFIG_KEY = __NAMESPACE__;
+
     public const RBAC_PUBLIC_ACCESS = [
         'actions' => '*',
         'allow' => '*',
@@ -66,7 +68,7 @@ class Module implements DependencyIndicatorInterface
         $controller = $mvcEvent->getTarget();
 
         $serviceManager = $mvcEvent->getApplication()->getServiceManager();
-        $redirectConfig = (array)($serviceManager->get('Config')['rbac_manager']['redirect'] ?? []);
+        $redirectConfig = (array)($serviceManager->get('Config')[__NAMESPACE__]['redirect'] ?? []);
 
         /** @var Request $request */
         $request = $controller->getRequest();

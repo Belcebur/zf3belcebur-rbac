@@ -10,6 +10,7 @@ use Zend\Authentication\AuthenticationService;
 use Zend\ServiceManager\Exception\ServiceNotCreatedException;
 use Zend\ServiceManager\Exception\ServiceNotFoundException;
 use Zend\ServiceManager\Factory\FactoryInterface;
+use ZF3Belcebur\Rbac\Module;
 use ZF3Belcebur\Rbac\Resource\RbacManager;
 
 class RbacManagerFactory implements FactoryInterface
@@ -30,8 +31,8 @@ class RbacManagerFactory implements FactoryInterface
     {
         $assertionManagers = [];
         $config = $container->get('Config');
-        $rbacAccessFilter = (array)($config['rbac_manager']['access_filter'] ?? []);
-        $assertions = (array)($config['rbac_manager']['assertions'] ?? []);
+        $rbacAccessFilter = (array)($config[Module::CONFIG_KEY]['access_filter'] ?? []);
+        $assertions = (array)($config[Module::CONFIG_KEY]['assertions'] ?? []);
         foreach ($assertions as $serviceName) {
             $assertionManagers[$serviceName] = $container->get($serviceName);
         }

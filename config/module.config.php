@@ -4,7 +4,6 @@ namespace ZF3Belcebur\Rbac;
 
 use Doctrine\ORM\Mapping\Driver\AnnotationDriver;
 use Zend\Http\PhpEnvironment\Response;
-use Zend\ServiceManager\Factory\InvokableFactory;
 use ZF3Belcebur\Rbac\Controller\Plugin\AccessPlugin;
 use ZF3Belcebur\Rbac\Factory\Controller\Plugin\AccessPluginFactory;
 use ZF3Belcebur\Rbac\Factory\Resource\RbacManagerFactory;
@@ -29,16 +28,6 @@ return [
             'access' => Access::class,
         ],
     ],
-    'controllers' => [
-        'factories' => [
-            Controller\IndexController::class => InvokableFactory::class,
-        ],
-    ],
-    'view_manager' => [
-        'template_path_stack' => [
-            'Rbac' => __DIR__ . '/../view',
-        ],
-    ],
     'doctrine' => [
         'driver' => [
             'rbac_driver' => [
@@ -55,7 +44,7 @@ return [
             ],
         ],
     ],
-    'rbac_manager' => [
+    Module::CONFIG_KEY => [
         'access_filter' => [
             'options' => [
                 'mode' => 'restrictive',
