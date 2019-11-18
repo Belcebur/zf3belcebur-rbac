@@ -1,0 +1,40 @@
+{
+  "name": "zf3belcebur/rbac",
+  "description": "Extended RBAC with Doctrine ORM",
+  "keywords": [
+    "RBAC",
+    "ZF3",
+    "Service",
+    "Zend",
+    "View Helper",
+    "View",
+    "Controller Plugin",
+    "Plugin"
+  ],
+  "type": "library",
+  "require": {
+    "php": "^7.1",
+    "zendframework/zend-permissions-rbac": "^3.0"
+  },
+  "suggest": {
+    "zf3belcebur/doctrine-orm-fast-api": "Quickly create an automatic API CRUD with your Doctrine ORM connection",
+    "zf3belcebur/doctrine-orm-resources": "DoctrineORM Resources to ZF3",
+    "zf3belcebur/materialize-css-helper": "MaterializeCss Helper integration to ZF3",
+    "zf3belcebur/mongodb-logger": "MongoDb Logger integration to ZF3",
+    "zf3belcebur/mvc-basic-tools": "ZF3 tools for controllers,views,helpers, plugins and more ..."
+  },
+  "license": "Apache-2.0",
+  "authors": [
+    {
+      "name": "David Garcia",
+      "email": "garcia.gordo.david@gmail.com",
+      "homepage": "https://github.com/Belcebur"
+    }
+  ],
+  "minimum-stability": "stable",
+  "autoload": {
+    "psr-4": {
+      "ZF3Belcebur\\Rbac\\": "src/"
+    }
+  }
+}

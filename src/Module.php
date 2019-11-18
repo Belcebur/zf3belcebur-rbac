@@ -10,6 +10,7 @@ namespace ZF3Belcebur\Rbac;
 use Exception;
 use Zend\Http\PhpEnvironment\Request;
 use Zend\Http\PhpEnvironment\Response;
+use Zend\ModuleManager\Feature\DependencyIndicatorInterface;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\Mvc\Controller\AbstractController;
 use Zend\Mvc\Controller\AbstractRestfulController;
@@ -19,7 +20,7 @@ use Zend\Uri\Http;
 use ZF3Belcebur\Rbac\Resource\RbacManager;
 use function in_array;
 
-class Module
+class Module implements DependencyIndicatorInterface
 {
 
     public const RBAC_PUBLIC_ACCESS = [
@@ -124,5 +125,18 @@ class Module
         }
         return $urls;
 
+    }
+
+    /**
+     * Expected to return an array of modules on which the current one depends on
+     *
+     * @return array
+     */
+    public function getModuleDependencies(): array
+    {
+        return [
+            'DoctrineModule',
+            'DoctrineORMModule'
+        ];
     }
 }
