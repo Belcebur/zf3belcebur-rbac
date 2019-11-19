@@ -13,7 +13,7 @@ trait UserRole
 {
     /**
      * @var ArrayCollection|Collection
-     * @ORM\ManyToMany(targetEntity="Rbac\Entity\Role")
+     * @ORM\ManyToMany(targetEntity="ZF3Belcebur\Rbac\Entity\Role")
      * @ORM\JoinTable(name="user_role",
      *      joinColumns={@ORM\JoinColumn(name="user", referencedColumnName="id")},
      *      inverseJoinColumns={@ORM\JoinColumn(name="role", referencedColumnName="id")}

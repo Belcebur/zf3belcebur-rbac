@@ -36,7 +36,7 @@ class Role
 
     /**
      * @var ArrayCollection|Collection
-     * @ORM\ManyToMany(targetEntity="Rbac\Entity\Role", inversedBy="childRoles")
+     * @ORM\ManyToMany(targetEntity="ZF3Belcebur\Rbac\Entity\Role", inversedBy="childRoles")
      * @ORM\JoinTable(name="role_hierarchy",
      *      joinColumns={@ORM\JoinColumn(name="child_role", referencedColumnName="id")},
      *      inverseJoinColumns={@ORM\JoinColumn(name="parent_role", referencedColumnName="id")}
@@ -47,7 +47,7 @@ class Role
     /**
      * @var ArrayCollection|Collection
      *
-     * @ORM\ManyToMany(targetEntity="Rbac\Entity\Role", mappedBy="parentRoles")
+     * @ORM\ManyToMany(targetEntity="ZF3Belcebur\Rbac\Entity\Role", mappedBy="parentRoles")
      * @ORM\JoinTable(name="role_hierarchy",
      *      joinColumns={@ORM\JoinColumn(name="parent_role", referencedColumnName="id")},
      *      inverseJoinColumns={@ORM\JoinColumn(name="child_role", referencedColumnName="id")}
@@ -57,7 +57,7 @@ class Role
 
     /**
      * @var ArrayCollection|Collection
-     * @ORM\ManyToMany(targetEntity="Rbac\Entity\Permission", inversedBy="roles")
+     * @ORM\ManyToMany(targetEntity="ZF3Belcebur\Rbac\Entity\Permission", inversedBy="roles")
      * @ORM\JoinTable(name="role_permission",
      *      joinColumns={@ORM\JoinColumn(name="role", referencedColumnName="id")},
      *      inverseJoinColumns={@ORM\JoinColumn(name="permission", referencedColumnName="id")}

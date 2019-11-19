@@ -61,9 +61,8 @@ class Module implements DependencyIndicatorInterface
      * @param MvcEvent $mvcEvent
      * @return ResponseInterface
      */
-    public function rbacFilterAccess(MvcEvent $mvcEvent): ?ResponseInterface
+    public function rbacFilterAccess(MvcEvent $mvcEvent): ResponseInterface
     {
-
         /** @var AbstractController|AbstractRestfulController|AbstractActionController $controller */
         $controller = $mvcEvent->getTarget();
 
@@ -77,7 +76,7 @@ class Module implements DependencyIndicatorInterface
         $uri = $request->getUri();
         $currentUrl = $uri->toString();
         if (in_array($uri->getPath(), $this->getRedirectUrls($controller, $redirectConfig), true)) {
-            return null;
+            return $mvcEvent->getResponse();
         }
 
         $controllerName = $controller->params()->fromRoute('controller', null);
@@ -111,7 +110,7 @@ class Module implements DependencyIndicatorInterface
                 return $controller->redirect()->toUrl($defaultUrl);
             }
         }
-        return null;
+        return $mvcEvent->getResponse();;
     }
 
     private function getRedirectUrls(AbstractController $controller, array $redirectConfig): array

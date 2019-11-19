@@ -36,7 +36,7 @@ class Permission
 
     /**
      * @var ArrayCollection|Collection
-     * @ORM\ManyToMany(targetEntity="Rbac\Entity\Role", mappedBy="permissions")
+     * @ORM\ManyToMany(targetEntity="ZF3Belcebur\Rbac\Entity\Role", mappedBy="permissions")
      * @ORM\JoinTable(name="role_permission",
      *     joinColumns={@ORM\JoinColumn(name="permission", referencedColumnName="id")},
      *     inverseJoinColumns={@ORM\JoinColumn(name="role", referencedColumnName="id")}
