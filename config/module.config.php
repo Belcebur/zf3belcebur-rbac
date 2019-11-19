@@ -39,7 +39,7 @@ return [
             ],
             'orm_default' => [
                 'drivers' => [
-                    'Rbac\Entity' => 'rbac_driver',
+                    'ZF3Belcebur\Rbac\Entity' => 'rbac_driver',
                 ],
             ],
         ],
