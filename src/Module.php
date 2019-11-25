@@ -73,7 +73,7 @@ class Module implements DependencyIndicatorInterface
         $request = $controller->getRequest();
 
         /** @var Http $uri */
-        $uri = $request->getUri();
+        $uri = clone $request->getUri();
         $currentUrl = $uri->toString();
         if (in_array($uri->getPath(), $this->getRedirectUrls($controller, $redirectConfig), true)) {
             return null;
