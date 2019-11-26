@@ -18,6 +18,7 @@ use Zend\Mvc\MvcEvent;
 use Zend\Stdlib\ResponseInterface;
 use Zend\Uri\Http;
 use ZF3Belcebur\Rbac\Resource\RbacManager;
+use function get_class;
 use function in_array;
 
 class Module implements DependencyIndicatorInterface
@@ -79,7 +80,7 @@ class Module implements DependencyIndicatorInterface
             return null;
         }
 
-        $controllerName = $controller->params()->fromRoute('controller', null);
+        $controllerName = get_class($controller);
         $actionName = $controller->params()->fromRoute('action', null);
 
         $rbacManager = $serviceManager->get(RbacManager::class);
